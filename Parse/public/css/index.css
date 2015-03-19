@@ -1,0 +1,131 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #2E97DE;
+	font-family: 'Bubblegum Sans';
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+header.header {
+  width: 800px;
+  margin: 25px auto 10px;
+}
+
+header.header .logo {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Bubblegum Sans';
+  font-size: 26px;
+  font-weight: 500;
+  float: left;
+}
+
+header.header .navigation {
+  float: right;
+}
+
+header.header .navigation .link {
+  float: left;
+  margin: 10px 0 0 20px;
+  color: #fff;
+  opacity: 0.6;
+  transition: opacity .2s ease 0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+header.header .navigation .link:hover {
+  opacity: 0.9;
+}
+
+header.header .navigation .link.active,
+header.header .navigation .link:hover:active {
+  opacity: 1;
+}
+
+.form .input {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  border: none;
+  border-left: solid 0 #61cdff;
+  border-bottom: solid 1px #ededed;
+  transition: border-left-width .2s ease 0;
+  outline: none;
+  color: #333;
+  display: block;
+}
+
+.form .input:not(.disabled):focus {
+  border-left-width: 10px;
+}
+
+.form .input.disabled {
+  background: #fafafa;
+}
+
+.form .input.textarea {
+  height: 150px;
+  resize: vertical;
+  margin: 0;
+}
+
+.form .button {
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+  color: #2E97DE;
+  box-sizing: border-box;
+  font-size: 18px;
+  outline: none;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease 0;
+}
+
+.form .button:hover {
+  background: #f7f7f7;
+}
+
+.form .button.error {
+  color: #B1100A;
+}
+
+.form .button.active,
+.form .button:hover:active {
+  background: #f1f1f1;
+}
