@@ -22,10 +22,21 @@ $(function(){                          //<- equivalent to attribute
         condom = null;
       }
       
+      var list = (cookie+", "+redBull+", "+condom);
+      
       console.log(cookie+", "+redBull+", "+condom+" ordered to "+loc);
       console.log("customer number: "+number);
       console.log("success");
-    
-
+      
+      $.post("/order/new",
+      {
+        location: loc,
+        orderList: list,
+        phoneNumber: number
+      },
+      
+      function() {
+        console.log("success")
+      });
   });
 });

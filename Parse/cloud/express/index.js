@@ -5,12 +5,10 @@ var app = express()
 Parse.Cloud.useMasterKey()
 
 // Routes
-/*  var routes = {
-    core: require("cloud/express/routes/index.js"),
-    workers: require("cloud/express/routes/workers.js"),
-    orders: require("cloud/express/routes/orders.js"),
-    accounts: require("cloud/express/routes/accounts.js")
-  } */
+  var routes = {
+//    core: require("cloud/express/routes/index.js"),
+    order: require("cloud/express/routes/order.js")//,
+  }
 
 // Global app configuration section
 app.set('views', 'cloud/express/views')
@@ -26,6 +24,40 @@ app.use(express.cookieSession({
       httpOnly: true
   }
 }))
+
+app.use(function(req, res, next) {
+  res.successT = function(data) {
+    data = data || {}
+    data.success = true
+    res.json(data)
+  }
+
+  res.errorT = function(error) {
+    error = error.description || error
+
+    res.json({
+      success: false,
+      status: 1,
+      message: error
+    })
+  }
+
+  res.renderT = function(template, data) {
+    data = data || {}
+    data.host = req.protocol + "://" + req.host
+    data.url = data.host + req.url
+    data.template = data.template || template
+    data.user = data.user || req.session.user
+    data.random = Math.random().toString(36).slice(2)
+    res.render(template, data)
+  }
+
+  next()
+})
+
+// Order Handling
+app.post('/order/new', routes.order.newOrder)
+
 
 // Not Found Redirect
 //app.all("*", routes.core.notfound)
