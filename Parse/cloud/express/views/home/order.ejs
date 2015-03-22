@@ -1,0 +1,95 @@
+<% include ../includes/start.ejs %>
+
+
+<!-- Main order page -->
+
+<div class="site-wrapper">
+
+  <div class="site-wrapper-inner">
+
+    <div class="cover-container">
+
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h2 class="masthead-brand">sweetD</h2>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li class="active"><a href="#">Order</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <form class="form">
+
+        <div class="inner cover">
+          <h1 class="cover-heading">Got a hankering for something sweet?</h1>
+          <p class="lead">Place your order and we'll get you what you need as soon as we can!</p>
+          
+          <div class="row">
+            <div class="col-md-4">
+              <h2>Cookies!</h2>
+              <p>Delicious cookies from none other than the Pacific Cookie Company! $0.50 each.</p>
+              
+              <select class="form-control" id="chipCookies">
+                <option>Chocolate Chip Cookies</option>
+                <option>1 Chocolate Chip Cookie</option>
+                <option>2 Chocolate Chip Cookies</option>
+                <option>3 Chocolate Chip Cookies</option>
+                <option>4 Chocolate Chip Cookies</option>
+              </select>
+              
+            </div>
+            <div class="col-md-4">
+              <h2>Drinks!</h2>
+              <p>Need a pick me up? How about something refreshing? We've got it. $2 each. </p>
+              <select class="form-control" id="redBull">
+                <option>Red Bull</option>
+                <option>1 Red Bull</option>
+                <option>2 Red Bulls</option>
+                <option>3 Red Bulls</option>
+                <option>4 Red Bulls</option>
+              </select>
+            </div>
+           
+            <div class="col-md-4">
+              <h2>Condoms!</h2>
+              <p>Did you forget some? Fear not! Tonight just got a whole lot sweeter ;) $0.50 each.</p>
+              <select class="form-control" id="condoms">
+                <option>Condoms</option>
+                <option>1 Condom</option>
+                <option>2 Condoms</option>
+                <option>3 Condoms</option>
+                <option>4 Condoms</option>
+              </select>
+              
+            </div>
+          </div>
+          
+          
+          <p class ="lead" id="totalText">Total: $4.50</p>
+          
+          <p class="lead">
+            Some stuff about you...
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number here!">
+            <input type="text" class="form-control" id="location" placeholder="Enter your location! i.e. &#34;Oakes, Wiesel building&#34;">
+            <button type="submit" class="btn btn-lg btn-default">Gimme!</button>
+          </p>
+        </div>
+
+      </form>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <p>We have the sweets! <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<% include ../includes/end.ejs %>
