@@ -31,49 +31,57 @@
             <div class="col-md-4">
               <h2>Cookies!</h2>
               <p>Delicious cookies from none other than the Pacific Cookie Company! $0.50 each.</p>
-              
-              <select class="form-control" id="chipCookies">
-                <option>Chocolate Chip Cookies</option>
-                <option>1 Chocolate Chip Cookie</option>
-                <option>2 Chocolate Chip Cookies</option>
-                <option>3 Chocolate Chip Cookies</option>
-                <option>4 Chocolate Chip Cookies</option>
-              </select>
-              
+              <div class ="form-group">
+                <select class="form-control" id="chipCookies">
+                  <option class="top-selection">Chocolate Chip Cookies</option>
+                  <option>1 Chocolate Chip Cookie</option>
+                  <option>2 Chocolate Chip Cookies</option>
+                  <option>3 Chocolate Chip Cookies</option>
+                  <option>4 Chocolate Chip Cookies</option>
+                </select>
+              </div>
             </div>
             <div class="col-md-4">
               <h2>Drinks!</h2>
               <p>Need a pick me up? How about something refreshing? We've got it. $2 each. </p>
-              <select class="form-control" id="redBull">
-                <option>Red Bull</option>
-                <option>1 Red Bull</option>
-                <option>2 Red Bulls</option>
-                <option>3 Red Bulls</option>
-                <option>4 Red Bulls</option>
-              </select>
+              <div class ="form-group">
+                <select class="form-control" id="redBull">
+                  <option class="top-selection">Red Bull</option>
+                  <option>1 Red Bull</option>
+                  <option>2 Red Bulls</option>
+                  <option>3 Red Bulls</option>
+                  <option>4 Red Bulls</option>
+                </select>
+              </div>
             </div>
            
             <div class="col-md-4">
               <h2>Condoms!</h2>
               <p>Did you forget some? Fear not! Tonight just got a whole lot sweeter ;) $0.50 each.</p>
-              <select class="form-control" id="condoms">
-                <option>Condoms</option>
-                <option>1 Condom</option>
-                <option>2 Condoms</option>
-                <option>3 Condoms</option>
-                <option>4 Condoms</option>
-              </select>
-              
+              <div class ="form-group">
+                <select class="form-control" id="condoms">
+                  <option class="top-selection">Condoms</option>
+                  <option>1 Condom</option>
+                  <option>2 Condoms</option>
+                  <option>3 Condoms</option>
+                  <option>4 Condoms</option>
+                </select>
+              </div>
             </div>
           </div>
           
-          
-          <p class ="lead" id="totalText">Total: $4.50</p>
+          <p class ="lead" id="totalText">Total: $0.00</p>
           
           <p class="lead">
             Some stuff about you...
-            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number here!">
-            <input type="text" class="form-control" id="location" placeholder="Enter your location! i.e. &#34;Oakes, Wiesel building&#34;">
+            <div class="form-group" id="phoneCheck">
+              <input type="text" class="form-control has-success" id="phoneNumber" placeholder="Enter your phone number here!">
+            </div>
+            
+            <div class="form-group" id="locationCheck">
+              <input type="text" class="form-control" id="location" placeholder="Enter your location! i.e. &#34;Oakes, Wiesel building&#34;">
+            </div>
+
             <button type="submit" class="btn btn-lg btn-default">Gimme!</button>
           </p>
         </div>
