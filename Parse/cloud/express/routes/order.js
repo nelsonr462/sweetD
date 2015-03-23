@@ -10,6 +10,13 @@ module.exports.home = function(req, res) {
   )
 }
 
+module.exports.thanks = function(req, res) {
+    res.renderT('home/complete', {
+      template: 'home/complete',
+    }
+  )
+}
+
 module.exports.newOrder = function(req, res) {
 
   var order = new Order();
@@ -17,21 +24,23 @@ module.exports.newOrder = function(req, res) {
   order.set("Location", req.param('location'))
   order.set("productOrdered", req.param('orderList'))
   order.set("customerPhone", req.param('phoneNumber'))
+  order.set("Total", req.param('total'))
+  order.set("Status", "Pending")
   
   order.save().then(function() {
-
     res.successT()
   }, res.errorT)
 
   var location = req.param('location')
   var productOrdered = req.param('orderList')
   var cstmerNumber = req.param('phoneNumber')
+  var total = req.param('total')
   
-  if(location && productOrdered && cstmerNumber) {
+  if(location && productOrdered && cstmerNumber && total) {
     client.sendSms({
       to: '+16507841467',
       from: '+16508661029',
-      body: 'New order: '+productOrdered+'. Location: '+location+'. Customer number: '+cstmerNumber,
+      body: 'New order: '+productOrdered+'.\n Location: '+location+'.\n Total: '+total+'.\n Customer number: '+cstmerNumber,
     }, function(err, responseData){
       if(err) {
         console.log(err)

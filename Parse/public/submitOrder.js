@@ -62,12 +62,15 @@ $(function(){
       {
         location: loc,
         orderList: list,
-        phoneNumber: number
+        phoneNumber: number,
+        total: total
       },
       
       function() {
         console.log("POST success")
       })
+      window.location.replace("http://sweetd.parseapp.com/thanks")
+
     } else if( pflag === false && lflag === false) {
       alert("Please enter a valid phone number and location!")
       $("#bad").remove()
