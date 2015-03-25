@@ -34,8 +34,6 @@ $(function(){
     event.preventDefault()
     event.stopPropagation()
     
-    var good = "<span class=\"glyphicon glyphicon-ok form-control-feedback\" aria-hidden=\"true\" id=\"good\"></span>"
-    var good2 = "<span class=\"glyphicon glyphicon-ok form-control-feedback\" aria-hidden=\"true\" id=\"good2\"></span>"
     var bad = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad\"></span>"
     var bad2 = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad2\"></span>"
 
@@ -130,6 +128,8 @@ $(function(){
   $('#phoneNumber').change(function() {
     
     var number = $("#phoneNumber").val()
+    var good = "<span class=\"glyphicon glyphicon-ok form-control-feedback\" aria-hidden=\"true\" id=\"good\"></span>"
+    var bad = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad\"></span>"
     
     var check = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/
     
@@ -155,6 +155,8 @@ $(function(){
   // Location input check
   $('#location').change(function() {
     var location = $("#location").val()
+    var good2 = "<span class=\"glyphicon glyphicon-ok form-control-feedback\" aria-hidden=\"true\" id=\"good2\"></span>"
+    var bad2 = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad2\"></span>"
     
     var check = /^(?!\s*$).+/
     
