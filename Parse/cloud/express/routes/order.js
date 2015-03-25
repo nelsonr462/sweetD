@@ -17,6 +17,10 @@ module.exports.thanks = function(req, res) {
   )
 }
 
+module.exports.notFound = function(req, res) {
+  res.redirect("/")
+}
+
 module.exports.newOrder = function(req, res) {
 
   var order = new Order();
@@ -40,7 +44,7 @@ module.exports.newOrder = function(req, res) {
     client.sendSms({
       to: '+16507841467',
       from: '+16508661029',
-      body: 'New order: '+productOrdered+'.\n Location: '+location+'.\n Total: '+total+'.\n Customer number: '+cstmerNumber,
+      body: 'New order: '+productOrdered+'\n Location: '+location+'\n Total: '+total+'\n Customer number: '+cstmerNumber,
     }, function(err, responseData){
       if(err) {
         console.log(err)
@@ -54,3 +58,21 @@ module.exports.newOrder = function(req, res) {
   }
   
 }
+
+// To be fixed later..
+/* module.exports.update = function(req, res) {
+  res.renderT('home/update', {
+      template: 'home/update',
+    }
+  )
+  var order = new Order()
+  order.id = req.param("order")
+  if(order.status == "Pending") {
+    order.set("status", req.param("status"))
+    order.save().then(function() {
+      res.redirect("/updated")
+    })
+  } else {
+    res.redirect("/")
+  }
+} */

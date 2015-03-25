@@ -6,7 +6,7 @@ Parse.Cloud.useMasterKey()
 
 // Routes
   var routes = {
-//    core: require("cloud/express/routes/index.js"),
+    inventory: require("cloud/express/routes/inventory.js"),
     order: require("cloud/express/routes/order.js")//,
   }
 
@@ -55,16 +55,17 @@ app.use(function(req, res, next) {
   next()
 })
 
-//Landing
+// Landings
 app.get('/', routes.order.home)
 app.get('/thanks', routes.order.thanks)
 
 // Order Handling
 app.post('/order/new', routes.order.newOrder)
-
+app.post('/inventory/update', routes.inventory.update)
+app.get('/inventory/request', routes.inventory.request)
 
 // Not Found Redirect
-//app.all("*", routes.core.notfound)
+app.all("*", routes.order.notFound)
  
 // Listen to Parse
 app.listen()
