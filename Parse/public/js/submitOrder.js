@@ -5,24 +5,6 @@ $(function(){
   var lflag = false;
   var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms"]
   var ids = ["Cw88sZHIZy", "yTFc0JXOV4", "dOWFhzLe0l", "OFlBAvSjpD" ]
-
-  
-  // Testing time variable
-  function checkTime() {
-    var d = new Date()
-    var hours = d.getHours()
-    var mins = d.getMinutes()
-    var day = d.getDay()
-    console.log(d)
-    
-    return hours >= 21 && hours <= 1
-    
-  }
-  // Time going to be used to disable order inputs
-  var time = checkTime()
-  if(time === false) {
-    console.log("closed")
-  }
   
   // Get inventory numbers
   for(i = 0; i<inventory.length; i++) {
@@ -75,7 +57,7 @@ $(function(){
       function() {
         console.log("POST success")
       })
-      window.location.replace("http://sweetd.parseapp.com/thanks")
+      window.location.replace("http://heysweetd.com/thanks")
 
     } else if( pflag === false && lflag === false) {
       alert("Please enter a valid phone number and location!")

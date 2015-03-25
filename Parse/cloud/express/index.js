@@ -56,8 +56,9 @@ app.use(function(req, res, next) {
 })
 
 // Landings
-app.get('/', routes.order.home)
+app.get('/', routes.order.tempo)
 app.get('/thanks', routes.order.thanks)
+//app.get('/closed',routes.order.closed)
 
 // Order Handling
 app.post('/order/new', routes.order.newOrder)
