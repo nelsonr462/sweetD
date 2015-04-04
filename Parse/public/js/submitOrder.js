@@ -1,6 +1,7 @@
 $(function(){
 
   var total = "$0.00"
+  var tval = 0;
   var pflag = false;
   var lflag = false;
   var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms"]
@@ -18,8 +19,6 @@ $(function(){
     
     var bad = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad\"></span>"
     var bad2 = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad2\"></span>"
-
-
 
     // User input taken //
     var number = $("#phoneNumber").val()
@@ -93,13 +92,25 @@ $(function(){
     
     //var inventory = ["Chocolate Chip Cookies", "Red Bull", "Condoms"]
     var itemsOrdered = [cookie, redBull, snickers, condom]
+    var fee = "<p id=\"deliveryFee\" style=\"margin-bottom: 20px;\">Delivery fee: <r>$3.00</r></p>"
+
     
     getTotal(itemsOrdered, inventory)
     
     if(total != "$0.00") {
-      $("#totalText").text("Total: ")
-      $("#totalText").append("<green>"+total+"</green>")
+      if(tval < 500) {
+        addFee(tval);
+        $("#deliveryFee").remove()
+        $("#totalText").text("Total: ")
+        $("#totalText").append("<r>"+total+"</r>")
+        $("#totalText").after(fee)
+      } else {
+        $("#deliveryFee").remove()
+        $("#totalText").text("Total: ")
+        $("#totalText").append("<green>"+total+"</green>")
+      }
     } else {
+      $("#deliveryFee").remove()
       $("#totalText").text("Total: " + total)
 
     }
@@ -188,7 +199,9 @@ $(function(){
       }
     }
     
+    tval = sum
     var tstring = sum.toString()
+
 
     if(sum >= 1000) {
       total = "$" + tstring.substr(0,2) + "." + tstring.substr(2)
@@ -290,6 +303,12 @@ $(function(){
     $('#totalText').addClass('pulse animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
       $(this).removeClass('pulse animated');
     });
+  }
+  
+  function addFee( value ) {
+    value = value + 300;
+    var tstring = value.toString()
+    total = "$" + tstring.substr(0,1) + "." + tstring.substr(1)
   }
   
 })
