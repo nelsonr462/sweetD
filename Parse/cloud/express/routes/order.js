@@ -16,9 +16,11 @@ module.exports.home = function(req, res) {
     var hours = d.getHours()
     var mins = d.getMinutes()
     var day = d.getDay()
-    console.log(d)
     // +7 hour shift as of 3/25/2015
-    return hours >= 4 && hours <= 11 && day >= 3 && day <= 7
+    return day >= 4
+      && (day <= 6 || day === 0)
+      && hours >= 3
+      && ((hours <= 7 && day === (4 || 0)) || (hours <= 9 && day === (5 || 6)))
   }
   
   // Hours of operation
@@ -86,6 +88,7 @@ module.exports.newOrder = function(req, res) {
   }
   
 }
+
 
 // To be fixed later..
 /* module.exports.update = function(req, res) {

@@ -43,3 +43,54 @@ module.exports.request = function(req, res) {
     }
   })
 }
+
+
+module.exports.getTotal = function(req, res) {
+  var order = req.param("order")
+  var inventory = req.param("inventory")
+  
+  var subtotals = []
+  var sum = 0;
+  var feeflag = false;
+  
+  for(i = 0; i < order.length; i++){
+    if( order[i] == inventory[i] ) {
+      subtotals[i] = 0
+      continue;
+    } else {
+    
+      var price
+      switch( inventory[i] ) {
+        case "Chocolate Chip Cookies":
+        case "Condoms":
+          price = 50;
+          break;
+        case "Snickers":
+          price = 100;
+          break;
+        case "Rock Star":
+        case "Red Bull":
+          price = 200;
+          break;
+      }
+      subtotals[i] = parseInt(order[i].charAt(0))*price
+      sum = sum + subtotals[i]
+    }
+  }
+  
+
+  if(sum === 0) {
+    feeflag = false
+  } else if(sum < 500 && sum > 0) {
+    feeflag = true
+    sum = sum + 300
+  }
+  
+  res.successT({
+    sum: sum,
+    fee: feeflag
+  })
+  
+  
+}
+

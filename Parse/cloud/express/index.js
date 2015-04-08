@@ -64,6 +64,7 @@ app.get('/thanks', routes.order.thanks)
 app.post('/order/new', routes.order.newOrder)
 app.post('/inventory/update', routes.inventory.update)
 app.get('/inventory/request', routes.inventory.request)
+app.get('/inventory/getTotal', routes.inventory.getTotal)
 
 // Not Found Redirect
 app.all("*", routes.order.notFound)
