@@ -14,9 +14,25 @@ a:hover {
 r {
   color: #FFD119;
 }
-
+/* Green text */
 green {
   color: #7DF481;
+}
+
+select {
+  color: black;
+  height: 35px;
+  width: 100%;
+  padding: 7px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background-image: url("/arrow.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  appearance: listbox;
+  -webkit-appearance: listbox;
+  -moz-appearance: listbox;
 }
 
 /* Custom default button */
@@ -223,17 +239,5 @@ body {
 }
 
 @media (max-width: 768px) {
-  select {
-  color: black;
-  height: 35px;
-  background-color: #fff;
-  border: 1px solid #fff;
-  border-radius: 3px;
-  background-image: url("/arrow.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-  appearance: listbox;
-  -webkit-appearance: listbox;
-  -moz-appearance: listbox;
-}
+
 }

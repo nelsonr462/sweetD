@@ -93,4 +93,3 @@ module.exports.getTotal = function(req, res) {
   
   
 }
-

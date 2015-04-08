@@ -7,7 +7,8 @@ Parse.Cloud.useMasterKey()
 // Routes
   var routes = {
     inventory: require("cloud/express/routes/inventory.js"),
-    order: require("cloud/express/routes/order.js")//,
+    order: require("cloud/express/routes/order.js"),
+    support: require("cloud/express/routes/support.js")
   }
 
 // Global app configuration section
@@ -58,6 +59,7 @@ app.use(function(req, res, next) {
 // Landings
 app.get('/', routes.order.tempo)
 app.get('/thanks', routes.order.thanks)
+app.get('/support', routes.support.contact)
 //app.get('/closed',routes.order.closed)
 
 // Order Handling
