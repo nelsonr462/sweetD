@@ -54,6 +54,7 @@ module.exports.notFound = function(req, res) {
 module.exports.newOrder = function(req, res) {
 
   var order = new Order();
+  var numbers = ['+16507841467', '+16502188830', '+16507843707', '+16502705079']
   
   order.set("Location", req.param('location'))
   order.set("productOrdered", req.param('orderList'))
@@ -71,20 +72,24 @@ module.exports.newOrder = function(req, res) {
   var total = req.param('total')
   
   if(location && productOrdered && cstmerNumber && total) {
-    client.sendSms({
-      to: '+16507841467',
-      from: '+16508661029',
-      body: 'New order: '+productOrdered+'\n Location: '+location+'\n Total: '+total+'\n Customer number: '+cstmerNumber,
-    }, function(err, responseData){
-      if(err) {
-        console.log(err)
-      } else {
-        console.log(responseData.from);
-        console.log(responseData.body);
-      }
-    }
     
-    )
+    for(i = 0; i < numbers.length; i++) {
+      client.sendSms({
+        to: numbers[i],
+        from: '+16508661029',
+        body: 'New order: '+productOrdered+'\n Location: '+location+'\n Total: '+total+'\n Customer number: '+cstmerNumber,
+      }, function(err, responseData){
+        if(err) {
+          console.log(err)
+        } else {
+          console.log(responseData.from);
+          console.log(responseData.body);
+        }
+      }
+      
+      )
+    }
+      
   }
   
 }
