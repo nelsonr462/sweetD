@@ -337,6 +337,18 @@ $(function(){
       d = data.remaining
       element = element + data.elementId
       switch(d) {
+        case 8:
+          str = "<r> (8"+str;
+          $(label).append(str)
+          break;
+        case 7:
+          str = "<r> (7"+str;
+          $(label).append(str)
+          break;
+        case 6:
+          str = "<r> (6"+str;
+          $(label).append(str)
+          break;
         case 5:
           str = "<r> (5"+str;
           $(label).append(str)

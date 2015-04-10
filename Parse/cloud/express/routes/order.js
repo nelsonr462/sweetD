@@ -16,11 +16,11 @@ module.exports.home = function(req, res) {
     var hours = d.getHours()
     var mins = d.getMinutes()
     var day = d.getDay()
-    // +7 hour shift as of 3/25/2015
+    // +1 day +7 hour shift as of 3/25/2015
     return day >= 4
       && (day <= 6 || day === 0)
       && hours >= 3
-      && ((hours <= 7 && day === (4 || 0)) || (hours <= 9 && day === (5 || 6)))
+      && ((hours <= 6 && day === (5 || 1)) || (hours <= 8 && day === (6 || 0)))
   }
   
   // Hours of operation
