@@ -17,8 +17,8 @@ module.exports.home = function(req, res) {
     var mins = d.getMinutes()
     var day = d.getDay()
     // +1 day +7 hour shift as of 3/25/2015
-    return day >= 4
-      && (day <= 6 || day === 0)
+    return day >= 5
+      && (day <= 6 || day === 0 || day === 1)
       && hours >= 3
       && ((hours <= 6 && day === (5 || 1)) || (hours <= 8 && day === (6 || 0)))
   }
