@@ -54,7 +54,7 @@ module.exports.notFound = function(req, res) {
 module.exports.newOrder = function(req, res) {
 
   var order = new Order();
-  var numbers = ['+16507841467', '+16502188830', '+16507843707', '+16502705079']
+  var numbers = ['+16507841467', '+16502188830', '+16507843707', '+16502705079', '+13107038176']
   
   order.set("Location", req.param('location'))
   order.set("productOrdered", req.param('orderList'))
