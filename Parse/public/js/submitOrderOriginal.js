@@ -4,8 +4,8 @@ $(function(){
   var tval = 0;
   var pflag = false;
   var lflag = false;
-  var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms", "Rock Star", "White Chocolate Macadamia Cookies", "Oatmeal Raisin Cookies", "Brownies", "Cinnamon Rolls", "Twix", "Milky Way", "M&M's", "Peanut M&M's", "Donuts", "Cake Donuts", "Oreos (big stack)", "Fudge"]
-  var ids = ["Cw88sZHIZy", "yTFc0JXOV4", "dOWFhzLe0l", "OFlBAvSjpD", "r4aIlTLQ4J", "kDIaQg1oF6", "arhcAs2f1s", "jqlPANiXgo", "NguOjWzDvc", "XZtg1Yebhe", "ZgfMt4Gp0f", "C9IwFUQQOW", "VYrQAhuOwY", "sR0Fp9zuWr", "Jf3MJg0vWc", "91UUQpoXRP", "mThsaE0riW" ]
+  var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms", "Rock Star", "White Chocolate Macadamia Cookies", "Oatmeal Raisin Cookies", "Brownies", "Cinnamon Rolls", "Twix", "Milky Way", "M&M's", "Peanut M&M's", "Donuts", "Cake Donuts", "Oreos (big stack)", "Fudge Squares", "Red Gatorade", "Yellow Gatorade", "Orange Gatorade", "Blue Gatorade", "Purple Gatorade", "Light Blue Gatorade"]
+  var ids = ["Cw88sZHIZy", "yTFc0JXOV4", "dOWFhzLe0l", "OFlBAvSjpD", "r4aIlTLQ4J", "kDIaQg1oF6", "arhcAs2f1s", "jqlPANiXgo", "NguOjWzDvc", "XZtg1Yebhe", "ZgfMt4Gp0f", "C9IwFUQQOW", "VYrQAhuOwY", "sR0Fp9zuWr", "Jf3MJg0vWc", "91UUQpoXRP", "mThsaE0riW", "P00Ldu1VCO", "4RnODisFgz", "I6RvosJKlo", "jiGy5tX5sx", "Z85JheZzvo", "t5jpEGMkdZ" ]
   
   // Get inventory numbers
   for(i = 0; i<inventory.length; i++) {
@@ -39,9 +39,16 @@ $(function(){
     var donuts = $("#donuts").val()
     var cakeDonuts = "Cake Donuts" //$("#cakeDonuts").val()
     var oreos = $("#oreos").val()
-    var fudge = "Fudge"//$("#fudge").val()
+    var fudge = $("#fudge").val()
+    var redGat = $("#redGat").val()
+    var yellowGat = $("#yellowGat").val()
+    var orangeGat = $("#orangeGat").val()
+    var blueGat = $("#blueGat").val()
+    var purpleGat = $("#purpleGat").val()
+    var lightBlueGat = $("#lightBlueGat").val()
+
     var creditCard = $("#creditCheck").hasClass("checked")
-    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts, cakeDonuts, oreos, fudge]
+    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts, cakeDonuts, oreos, fudge, redGat, yellowGat, orangeGat, blueGat, purpleGat, lightBlueGat]
     var list = ""
     
     // Create list string
@@ -116,8 +123,14 @@ $(function(){
     var donuts = $("#donuts").val()
     var cakeDonuts = "Cake Donuts" //$("#cakeDonuts").val()
     var oreos = $("#oreos").val()
-    var fudge = "Fudge"//$("#fudge").val()
-    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts, cakeDonuts, oreos, fudge]
+    var fudge = $("#fudge").val()
+    var redGat = $("#redGat").val()
+    var yellowGat = $("#yellowGat").val()
+    var orangeGat = $("#orangeGat").val()
+    var blueGat = $("#blueGat").val()
+    var purpleGat = $("#purpleGat").val()
+    var lightBlueGat = $("#lightBlueGat").val()
+    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts, cakeDonuts, oreos, fudge, redGat, yellowGat, orangeGat, blueGat, purpleGat, lightBlueGat]
     var fee = "<p id=\"deliveryFee\" style=\"margin-bottom: 20px;\">Delivery fee: <r>$3.00</r></p>"
 
     
@@ -233,13 +246,19 @@ $(function(){
           case "Rock Star":
           case "Red Bull":
           case "Oreos (big stack)":
+          case "Red Gatorade":
+          case "Yellow Gatorade":
+          case "Orange Gatorade":
+          case "Blue Gatorade":
+          case "Purple Gatorade":
+          case "Light Blue Gatorade":
             price = 200;
             break;
           case "Donuts":
           case "Cake Donuts":
             price = 150;
             break;
-          case "Fudge":
+          case "Fudge Squares":
             price = 250;
             break;
         }
@@ -346,6 +365,30 @@ $(function(){
           case "Fudge":
             itemType[i] = "Special"
             id[i] = "mThsaE0riW"
+            break;
+          case "Red Gatorade":
+            itemType[i] = "Drink"
+            id[i] = "P00Ldu1VCO"
+            break;
+          case "Yellow Gatorade":
+            itemType[i] = "Drink"
+            id[i] = "4RnODisFgz"
+            break;
+          case "Orange Gatorade":
+            itemType[i] = "Drink"
+            id[i] = "I6RvosJKlo"
+            break;
+          case "Blue Gatorade":
+            itemType[i] = "Drink"
+            id[i] = "jiGy5tX5sx"
+            break;
+          case "Purple Gatorade":
+            itemType[i] = "Drink"
+            id[i] = "Z85JheZzvo"
+            break;
+          case "Light Blue Gatorade":
+            itemType[i] = "Drink"
+            id[i] = "t5jpEGMkdZ"
             break;
         }
         

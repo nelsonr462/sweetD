@@ -1,13 +1,23 @@
 <% include ../includes/start.ejs %>
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '370239949834259',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- Main order page -->
 
@@ -45,13 +55,58 @@
         </script>
 
         <div class="inner cover">
-          <h1 class="cover-heading">Got a hankering for something sweet?</h1>
+          <h1 class="cover-heading"><green>TIME TO FULFILL YOUR MUNCHIE-FILLED DESTINY</green></h1>
+          <!-- <h1 class="cover-heading">Got a hankering for something sweet?</h1> -->
+
           <p class="lead">Place your order and we'll get you what you need as soon as we can!</p>
           <p><green>NOW DELIVERING TO CAMPUS AND SURROUNDING AREAS!</green></p>
-          <p><r>Pre-orders taken before 8PM, but will be delivered at 8 PM.</r></p>
+          <p class="lead"><r>Pre-orders taken before 8PM, but will be delivered at 8 PM.</r></p>
 
           
           <div class="row">
+            
+            <div class = "col-md-4">
+              <h2>Specials!</h2>
+              <p><r>LIMITED TIME ONLY</r>  Want a nice and fluffy donut just 'cause? How about some amazing homemade fudge to help fundraise for a fellow student? Why not both!? AWW YISS</p>
+              <div class ="form-group">
+                <label id = "sR0Fp9zuWr">Glazed Donuts <green>$1.50/donut</green></label>
+                <select style="color:black;" id="donuts">
+                  <option class="top-selection">Donuts</option>
+                  <option value="1 DnuT">1 Donut</option>
+                  <option value="2 DnuT">2 Donuts</option>
+                  <option value="3 DnuT">3 Donuts</option>
+                  <option value="4 DnuT">4 Donuts</option>
+                  <option value="5 DnuT">5 Donuts</option>
+                  <option value="6 DnuT">6 Donuts</option>
+                  <option value="7 DnuT">7 Donuts</option>
+                  <option value="8 DnuT">8 Donuts</option>
+                </select>
+                <label id = "mThsaE0riW" style="margin-top: 20px;">Jennifer's Homemade Fudge! <green>$2.50/square</green></label>
+                <select style="color:black;" id="fudge">
+                  <option class="top-selection">Fudge Squares</option>
+                  <option value="1 FdgE">1 Fudge Square</option>
+                  <option value="2 FdgE">2 Fudge Squares</option>
+                  <option value="3 FdgE">3 Fudge Squares</option>
+                  <option value="4 FdgE">4 Fudge Squares</option>
+                  <option value="5 FdgE">5 Fudge Squares</option>
+                  <option value="6 FdgE">6 Fudge Squares</option>
+                  <option value="7 FdgE">7 Fudge Squares</option>
+                  <option value="8 FdgE">8 Fudge Squares</option>
+                </select>
+                <!-- <label id = "Jf3MJg0vWc" style="margin-top: 20px;">Cake Donuts (assorted)</label>
+                <select style="color:black;" id="cakeDonuts">
+                  <option class="top-selection">Cake Donuts</option>
+                  <option value="1 CkDn">1 Cake Donut</option>
+                  <option value="2 CkDn">2 Cake Donuts</option>
+                  <option value="3 CkDn">3 Cake Donuts</option>
+                  <option value="4 CkDn">4 Cake Donuts</option>
+                  <option value="5 CkDn">5 Cake Donuts</option>
+                  <option value="6 CkDn">6 Cake Donuts</option>
+                  <option value="7 CkDn">7 Cake Donuts</option>
+                  <option value="8 CkDn">8 Cake Donuts</option>
+                </select> -->
+              </div>
+            </div>
             <div class="col-md-4">
               <h2>Condoms!</h2>
               <p>Did you forget some? Fear not! Tonight just got a whole lot sweeter ;) <green>$0.50</green> each.</p>
@@ -70,68 +125,6 @@
                 </select>
               </div>
             </div>
-            <div class = "col-md-4">
-              <h2>Specials!</h2>
-              <p><r>LIMITED TIME SPECIAL</r>  "OMG THEY HAVE DONUTS" You spoke, we listened! Donuts are here! <green>$1.50</green> each.</p>
-              <div class ="form-group">
-                <label id = "sR0Fp9zuWr">Glazed Donuts</label>
-                <select style="color:black;" id="donuts">
-                  <option class="top-selection">Donuts</option>
-                  <option value="1 DnuT">1 Donut</option>
-                  <option value="2 DnuT">2 Donuts</option>
-                  <option value="3 DnuT">3 Donuts</option>
-                  <option value="4 DnuT">4 Donuts</option>
-                  <option value="5 DnuT">5 Donuts</option>
-                  <option value="6 DnuT">6 Donuts</option>
-                  <option value="7 DnuT">7 Donuts</option>
-                  <option value="8 DnuT">8 Donuts</option>
-                </select>
-                <!-- <label id = "mThsaE0riW" style="margin-top: 20px;">Jennifer's Homemade Fudge!</label>
-                <select style="color:black;" id="fudge">
-                  <option class="top-selection">Fudge Squares</option>
-                  <option value="1 FdgE">1 Fudge Square</option>
-                  <option value="2 FdgE">2 Fudge Squares</option>
-                  <option value="3 FdgE">3 Fudge Squares</option>
-                  <option value="4 FdgE">4 Fudge Squares</option>
-                  <option value="5 FdgE">5 Fudge Squares</option>
-                  <option value="6 FdgE">6 Fudge Squares</option>
-                  <option value="7 FdgE">7 Fudge Squares</option>
-                  <option value="8 FdgE">8 Fudge Squares</option>
-                </select> -->
-                <!-- <label id = "Jf3MJg0vWc" style="margin-top: 20px;">Cake Donuts (assorted)</label>
-                <select style="color:black;" id="cakeDonuts">
-                  <option class="top-selection">Cake Donuts</option>
-                  <option value="1 CkDn">1 Cake Donut</option>
-                  <option value="2 CkDn">2 Cake Donuts</option>
-                  <option value="3 CkDn">3 Cake Donuts</option>
-                  <option value="4 CkDn">4 Cake Donuts</option>
-                  <option value="5 CkDn">5 Cake Donuts</option>
-                  <option value="6 CkDn">6 Cake Donuts</option>
-                  <option value="7 CkDn">7 Cake Donuts</option>
-                  <option value="8 CkDn">8 Cake Donuts</option>
-                </select> -->
-              </div>
-            </div>
-            <div class="col-md-4">
-              <h2>Drinks!</h2>
-              <p>Need a pick me up? How about something refreshing? We've got it. <green>$2.00</green> each. </p>
-              <div class ="form-group">
-                <label id = "r4aIlTLQ4J">Rock Star</label>
-                <select style="color:black;" id="rockStars">
-                  <option class="top-selection">Rock Star</option>
-                  <option value="1 RkSt">1 Rock Star</option>
-                  <option value="2 RkSt">2 Rock Stars</option>
-                  <option value="3 RkSt">3 Rock Stars</option>
-                  <option value="4 RkSt">4 Rock Stars</option>
-                  <option value="5 RkSt">5 Rock Stars</option>
-                  <option value="6 RkSt">6 Rock Stars</option>
-                  <option value="7 RkSt">7 Rock Stars</option>
-                  <option value="8 RkSt">8 Rock Stars</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row" style="padding-top: 0px">
             <div class = "col-md-4">
               <h2>Minis!</h2>
               <p>Cookies and candy not doin' it for ya? How about a brownie? Cinnamon roll? Yes, please! <green>$0.50</green> each.</p>
@@ -159,6 +152,141 @@
                   <option value="6 CnRl">6 Cinnamon Rolls</option>
                   <option value="7 CnRl">7 Cinnamon Rolls</option>
                   <option value="8 CnRl">8 Cinnamon Rolls</option>
+                </select>
+              </div>
+            </div>
+            
+          </div>
+          <div class="row" style="padding-top: 0px">
+            <div class="col-md-4">
+              <h2>Drinks!</h2>
+              <p>Need a pick me up? How about something refreshing? We've got it. <green>$2.00</green> each. </p>
+              <div class ="form-group">
+                <label id = "r4aIlTLQ4J">Rock Star</label>
+                <select style="color:black;" id="rockStars">
+                  <option class="top-selection">Rock Star</option>
+                  <option value="1 RkSt">1 Rock Star</option>
+                  <option value="2 RkSt">2 Rock Stars</option>
+                  <option value="3 RkSt">3 Rock Stars</option>
+                  <option value="4 RkSt">4 Rock Stars</option>
+                  <option value="5 RkSt">5 Rock Stars</option>
+                  <option value="6 RkSt">6 Rock Stars</option>
+                  <option value="7 RkSt">7 Rock Stars</option>
+                  <option value="8 RkSt">8 Rock Stars</option>
+                </select>
+                <label id = "P00Ldu1VCO" style="margin-top: 20px;">Red Gatorade</label>
+                <select style="color:black;" id="redGat">
+                  <option class="top-selection">Red Gatorade</option>
+                  <option value="1 RgaT">1 Red Gatorade</option>
+                  <option value="2 RgaT">2 Red Gatorades</option>
+                  <option value="3 RgaT">3 Red Gatorades</option>
+                  <option value="4 RgaT">4 Red Gatorades</option>
+                  <option value="5 RgaT">5 Red Gatorades</option>
+                  <option value="6 RgaT">6 Red Gatorades</option>
+                  <option value="7 RgaT">7 Red Gatorades</option>
+                  <option value="8 RgaT">8 Red Gatorades</option>
+                </select>
+                <label id = "4RnODisFgz" style="margin-top: 20px;">Yellow Gatorade</label>
+                <select style="color:black;" id="yellowGat">
+                  <option class="top-selection">Yellow Gatorade</option>
+                  <option value="1 YgaT">1 Yellow Gatorade</option>
+                  <option value="2 YgaT">2 Yellow Gatorades</option>
+                  <option value="3 YgaT">3 Yellow Gatorades</option>
+                  <option value="4 YgaT">4 Yellow Gatorades</option>
+                  <option value="5 YgaT">5 Yellow Gatorades</option>
+                  <option value="6 YgaT">6 Yellow Gatorades</option>
+                  <option value="7 YgaT">7 Yellow Gatorades</option>
+                  <option value="8 YgaT">8 Yellow Gatorades</option>
+                </select>
+                <label id = "I6RvosJKlo" style="margin-top: 20px;">Orange Gatorade</label>
+                <select style="color:black;" id="orangeGat">
+                  <option class="top-selection">Orange Gatorade</option>
+                  <option value="1 OgaT">1 Orange Gatorade</option>
+                  <option value="2 OgaT">2 Orange Gatorades</option>
+                  <option value="3 OgaT">3 Orange Gatorades</option>
+                  <option value="4 OgaT">4 Orange Gatorades</option>
+                  <option value="5 OgaT">5 Orange Gatorades</option>
+                  <option value="6 OgaT">6 Orange Gatorades</option>
+                  <option value="7 OgaT">7 Orange Gatorades</option>
+                  <option value="8 OgaT">8 Orange Gatorades</option>
+                </select>
+                <label id = "jiGy5tX5sx" style="margin-top: 20px;">Blue Gatorade</label>
+                <select style="color:black;" id="blueGat">
+                  <option class="top-selection">Blue Gatorade</option>
+                  <option value="1 BgaT">1 Blue Gatorade</option>
+                  <option value="2 BgaT">2 Blue Gatorades</option>
+                  <option value="3 BgaT">3 Blue Gatorades</option>
+                  <option value="4 BgaT">4 Blue Gatorades</option>
+                  <option value="5 BgaT">5 Blue Gatorades</option>
+                  <option value="6 BgaT">6 Blue Gatorades</option>
+                  <option value="7 BgaT">7 Blue Gatorades</option>
+                  <option value="8 BgaT">8 Blue Gatorades</option>
+                </select>
+                <label id = "Z85JheZzvo" style="margin-top: 20px;">Purple Gatorade</label>
+                <select style="color:black;" id="purpleGat">
+                  <option class="top-selection">Purple Gatorade</option>
+                  <option value="1 PgaT">1 Purple Gatorade</option>
+                  <option value="2 PgaT">2 Purple Gatorades</option>
+                  <option value="3 PgaT">3 Purple Gatorades</option>
+                  <option value="4 PgaT">4 Purple Gatorades</option>
+                  <option value="5 PgaT">5 Purple Gatorades</option>
+                  <option value="6 PgaT">6 Purple Gatorades</option>
+                  <option value="7 PgaT">7 Purple Gatorades</option>
+                  <option value="8 PgaT">8 Purple Gatorades</option>
+                </select>
+                <label id = "t5jpEGMkdZ" style="margin-top: 20px;">Light Blue Gatorade</label>
+                <select style="color:black;" id="lightBlueGat">
+                  <option class="top-selection">Light Blue Gatorade</option>
+                  <option value="1 LgaT">1 Light Blue Gatorade</option>
+                  <option value="2 LgaT">2 Light Blue Gatorades</option>
+                  <option value="3 LgaT">3 Light Blue Gatorades</option>
+                  <option value="4 LgaT">4 Light Blue Gatorades</option>
+                  <option value="5 LgaT">5 Light Blue Gatorades</option>
+                  <option value="6 LgaT">6 Light Blue Gatorades</option>
+                  <option value="7 LgaT">7 Light Blue Gatorades</option>
+                  <option value="8 LgaT">8 Light Blue Gatorades</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h2>Cookies!</h2>
+              <p>Delicious cookies that will surely satisfy that craving of yours! <green>$0.50</green> each.</p>
+              <div class ="form-group">
+                <label id ="Cw88sZHIZy">Chocolate Chip Cookies</label>
+                <select style="color: black;" id="chipCookies">
+                  <option class="top-selection">Chocolate Chip Cookies</option>
+                  <option value="1 CcC">1 Chocolate Chip Cookie</option>
+                  <option value="2 CcC">2 Chocolate Chip Cookies</option>
+                  <option value="3 CcC">3 Chocolate Chip Cookies</option>
+                  <option value="4 CcC">4 Chocolate Chip Cookies</option>
+                  <option value="5 CcC">5 Chocolate Chip Cookies</option>
+                  <option value="6 CcC">6 Chocolate Chip Cookies</option>
+                  <option value="7 CcC">7 Chocolate Chip Cookies</option>
+                  <option value="8 CcC">8 Chocolate Chip Cookies</option>
+                </select>
+                <!-- <label id="kDIaQg1oF6" style="margin-top: 20px;">White Chocolate Macadamia Nut Cookies</label>
+                <select style="color: black;" id="whiteChocolate">
+                  <option class="top-selection">White Chocolate Macadamia Cookies</option>
+                  <option value="1 WcM">1 White Chocolate Macadamia Cookie</option>
+                  <option value="2 WcM">2 White Chocolate Macadamia Cookies</option>
+                  <option value="3 WcM">3 White Chocolate Macadamia Cookies</option>
+                  <option value="4 WcM">4 White Chocolate Macadamia Cookies</option>
+                  <option value="5 WcM">5 White Chocolate Macadamia Cookies</option>
+                  <option value="6 WcM">6 White Chocolate Macadamia Cookies</option>
+                  <option value="7 WcM">7 White Chocolate Macadamia Cookies</option>
+                  <option value="8 WcM">8 White Chocolate Macadamia Cookies</option>
+                </select> -->
+                <label id="91UUQpoXRP" style="margin-top: 20px;">Oreos <green>$2.00/stack</green></label>
+                <select style="color: black;" id="oreos">
+                  <option class="top-selection">Oreos (big stack)</option>
+                  <option value="1 OreO">1 Oreos (big stack)</option>
+                  <option value="2 OreO">2 Oreos (big stack)</option>
+                  <option value="3 OreO">3 Oreos (big stack)</option>
+                  <option value="4 OreO">4 Oreos (big stack)</option>
+                  <option value="5 OreO">5 Oreos (big stack)</option>
+                  <option value="6 OreO">6 Oreos (big stack)</option>
+                  <option value="7 OreO">7 Oreos (big stack)</option>
+                  <option value="8 OreO">8 Oreos (big stack)</option>
                 </select>
               </div>
             </div>
@@ -208,48 +336,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-4">
-              <h2>Cookies!</h2>
-              <p>Delicious cookies that will surely satisfy that cravireo <green>$0.50</green> each.</p>
-              <div class ="form-group">
-                <label id ="Cw88sZHIZy">Chocolate Chip Cookies</label>
-                <select style="color: black;" id="chipCookies">
-                  <option class="top-selection">Chocolate Chip Cookies</option>
-                  <option value="1 CcC">1 Chocolate Chip Cookie</option>
-                  <option value="2 CcC">2 Chocolate Chip Cookies</option>
-                  <option value="3 CcC">3 Chocolate Chip Cookies</option>
-                  <option value="4 CcC">4 Chocolate Chip Cookies</option>
-                  <option value="5 CcC">5 Chocolate Chip Cookies</option>
-                  <option value="6 CcC">6 Chocolate Chip Cookies</option>
-                  <option value="7 CcC">7 Chocolate Chip Cookies</option>
-                  <option value="8 CcC">8 Chocolate Chip Cookies</option>
-                </select>
-                <!-- <label id="kDIaQg1oF6" style="margin-top: 20px;">White Chocolate Macadamia Nut Cookies</label>
-                <select style="color: black;" id="whiteChocolate">
-                  <option class="top-selection">White Chocolate Macadamia Cookies</option>
-                  <option value="1 WcM">1 White Chocolate Macadamia Cookie</option>
-                  <option value="2 WcM">2 White Chocolate Macadamia Cookies</option>
-                  <option value="3 WcM">3 White Chocolate Macadamia Cookies</option>
-                  <option value="4 WcM">4 White Chocolate Macadamia Cookies</option>
-                  <option value="5 WcM">5 White Chocolate Macadamia Cookies</option>
-                  <option value="6 WcM">6 White Chocolate Macadamia Cookies</option>
-                  <option value="7 WcM">7 White Chocolate Macadamia Cookies</option>
-                  <option value="8 WcM">8 White Chocolate Macadamia Cookies</option>
-                </select> -->
-                <label id="91UUQpoXRP" style="margin-top: 20px;">Oreos <green>$2.00/stack</green></label>
-                <select style="color: black;" id="oreos">
-                  <option class="top-selection">Oreos (big stack)</option>
-                  <option value="1 OreO">1 Oreos (big stack)</option>
-                  <option value="2 OreO">2 Oreos (big stack)</option>
-                  <option value="3 OreO">3 Oreos (big stack)</option>
-                  <option value="4 OreO">4 Oreos (big stack)</option>
-                  <option value="5 OreO">5 Oreos (big stack)</option>
-                  <option value="6 OreO">6 Oreos (big stack)</option>
-                  <option value="7 OreO">7 Oreos (big stack)</option>
-                  <option value="8 OreO">8 Oreos (big stack)</option>
-                </select>
-              </div>
-            </div>
+            
           </div>
           
           <p class ="lead total" id="totalText" style="font-size: 30px;">Total: $0.00</p>

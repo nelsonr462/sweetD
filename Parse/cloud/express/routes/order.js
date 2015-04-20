@@ -24,8 +24,8 @@ module.exports.home = function(req, res) {
   // Hours of operation
   var time = checkTime()
   if(time === false) {
-  res.renderT('home/closed', {
-      template: 'home/closed',
+  res.renderT('home/420closed', {
+      template: 'home/420closed',
     }
   )
     console.log("closed")
