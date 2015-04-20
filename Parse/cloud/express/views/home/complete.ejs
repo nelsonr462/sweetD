@@ -1,5 +1,13 @@
 <% include ../includes/thanksstart.ejs %>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Order sent page -->
 
@@ -23,12 +31,19 @@
         </div>
       </div>
 
-      <div class="inner cover" id="mainstuff" style="margin-top: 100px; margin-bottom: 325px;">
+      <div class="inner cover" id="mainstuff" style="margin-top: 100px; margin-bottom: 25px;">
         <h1 class="cover-heading">Thanks for your order!</h1>
+        <p class="lead">Help us choose new products for our menu <a href="http://goo.gl/forms/Pb0JJkbeO1"><green>here</green></a>!</p>
         <p class="lead">We will send out your delivery soon! (We may contact you if necessary)</p>
+        <p class="lead"><r>IF YOU AREN'T CONTACTED WITHIN 10-15 MINUTES OF YOUR ORDER, PLEASE RESUBMIT IT AND CONTACT US IMMEDIATELY</r></p>
+
         <input type="image" class="img-circle" id="thecookie" src="/sweetdcookie.png">
       </div>
+      <div class="row" style="margin-bottom: 200px">
+        <div class="fb-like" data-href="https://facebook.com/heysweetd" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+      </div>
       
+
       <div class="mastfoot">
         <div class="inner">
           <p class="end">We have the sweets!</p>

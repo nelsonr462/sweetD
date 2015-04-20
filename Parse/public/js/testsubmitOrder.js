@@ -4,8 +4,8 @@ $(function(){
   var tval = 0;
   var pflag = false;
   var lflag = false;
-  var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms", "Rock Star", "White Chocolate Macadamia Cookies", "Oatmeal Raisin Cookies", "Brownies", "Cinnamon Rolls", "Twix", "Milky Way", "M&M's", "Peanut M&M's", "Donuts", "Cake Donuts", "Oreos (big stack)", "Fudge"]
-  var ids = ["Cw88sZHIZy", "yTFc0JXOV4", "dOWFhzLe0l", "OFlBAvSjpD", "r4aIlTLQ4J", "kDIaQg1oF6", "arhcAs2f1s", "jqlPANiXgo", "NguOjWzDvc", "XZtg1Yebhe", "ZgfMt4Gp0f", "C9IwFUQQOW", "VYrQAhuOwY", "sR0Fp9zuWr", "Jf3MJg0vWc", "91UUQpoXRP", "mThsaE0riW" ]
+  var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms", "Rock Star", "White Chocolate Macadamia Cookies", "Oatmeal Raisin Cookies", "Brownies", "Cinnamon Rolls", "Twix", "Milky Way", "M&M's", "Peanut M&M's", "Donuts"]
+  var ids = ["Cw88sZHIZy", "yTFc0JXOV4", "dOWFhzLe0l", "OFlBAvSjpD", "r4aIlTLQ4J", "kDIaQg1oF6", "arhcAs2f1s", "jqlPANiXgo", "NguOjWzDvc", "XZtg1Yebhe", "ZgfMt4Gp0f", "C9IwFUQQOW", "VYrQAhuOwY", "sR0Fp9zuWr" ]
   
   // Get inventory numbers
   for(i = 0; i<inventory.length; i++) {
@@ -28,8 +28,8 @@ $(function(){
     var condom = $("#condoms").val()
     var snickers = $("#snickers").val()
     var rockStar = $("#rockStars").val()
-    var whiteChocolate = "White Chocolate Macadamia Cookies"//$("#whiteChocolate").val()
-    var oatmeal = "Oatmeal Raisin Cookies"//$("#oatmeal").val()
+    var whiteChocolate = $("#whiteChocolate").val()
+    var oatmeal = $("#oatmeal").val()
     var brownie = $("#brownies").val()
     var cinnaRoll = $("#cinnaRolls").val()
     var twix = $("#twix").val()
@@ -37,11 +37,8 @@ $(function(){
     var mnms = $("#mnms").val()
     var peanuts = $("#peanuts").val()
     var donuts = $("#donuts").val()
-    var cakeDonuts = "Cake Donuts" //$("#cakeDonuts").val()
-    var oreos = $("#oreos").val()
-    var fudge = "Fudge"//$("#fudge").val()
     var creditCard = $("#creditCheck").hasClass("checked")
-    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts, cakeDonuts, oreos, fudge]
+    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts]
     var list = ""
     
     // Create list string
@@ -105,8 +102,8 @@ $(function(){
     var condom = $("#condoms").val()
     var snickers = $("#snickers").val()
     var rockStar = $("#rockStars").val()
-    var whiteChocolate = "White Chocolate Macadamia Cookies"//$("#whiteChocolate").val()
-    var oatmeal = "Oatmeal Raisin Cookies"//$("#oatmeal").val()
+    var whiteChocolate = $("#whiteChocolate").val()
+    var oatmeal = $("#oatmeal").val()
     var brownie = $("#brownies").val()
     var cinnaRoll = $("#cinnaRolls").val()
     var twix = $("#twix").val()
@@ -114,10 +111,8 @@ $(function(){
     var mnms = $("#mnms").val()
     var peanuts = $("#peanuts").val()
     var donuts = $("#donuts").val()
-    var cakeDonuts = "Cake Donuts" //$("#cakeDonuts").val()
-    var oreos = $("#oreos").val()
-    var fudge = "Fudge"//$("#fudge").val()
-    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts, cakeDonuts, oreos, fudge]
+    
+    var itemsOrdered = [cookie, redBull, snickers, condom, rockStar, whiteChocolate, oatmeal, brownie, cinnaRoll, twix, milkyWay, mnms, peanuts, donuts]
     var fee = "<p id=\"deliveryFee\" style=\"margin-bottom: 20px;\">Delivery fee: <r>$3.00</r></p>"
 
     
@@ -232,15 +227,10 @@ $(function(){
             break;
           case "Rock Star":
           case "Red Bull":
-          case "Oreos (big stack)":
             price = 200;
             break;
           case "Donuts":
-          case "Cake Donuts":
             price = 150;
-            break;
-          case "Fudge":
-            price = 250;
             break;
         }
         subtotals[i] = parseInt(order[i].charAt(0))*price
@@ -334,18 +324,6 @@ $(function(){
           case "Donuts":
             itemType[i] = "Special"
             id[i] = "sR0Fp9zuWr"
-            break;
-          case "Cake Donuts":
-            itemType[i] = "Special"
-            id[i] = "Jf3MJg0vWc"
-            break;
-          case "Oreos (big stack)":
-            itemType[i] = "Cookie"
-            id[i] = "91UUQpoXRP"
-            break;
-          case "Fudge":
-            itemType[i] = "Special"
-            id[i] = "mThsaE0riW"
             break;
         }
         

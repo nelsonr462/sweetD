@@ -19,6 +19,21 @@ green {
   color: #7DF481;
 }
 
+input[type=checkbox] {
+    /* Webkit browsers*/
+  -webkit-transform: scale(2);
+    /* Webkit browsers*/
+  -ms-transform: scale(2);
+    /* Webkit browsers*/
+  -o-transform: scale(2);
+    /* Webkit browsers*/
+  -moz-transform: scale(2);
+  /* All browsers except webkit*/
+  transform: scale(2);
+  margin-right: 10px;
+
+}
+
 select {
   color: black;
   height: 35px;

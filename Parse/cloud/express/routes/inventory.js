@@ -54,6 +54,7 @@ module.exports.getTotal = function(req, res) {
   var feeflag = false;
   
   for(i = 0; i < order.length; i++){
+    console.log(order[i])
     if( order[i] == inventory[i] ) {
       subtotals[i] = 0
       continue;
@@ -85,7 +86,7 @@ module.exports.getTotal = function(req, res) {
     feeflag = true
     sum = sum + 300
   }
-  
+  console.log(sum)
   res.successT({
     sum: sum,
     fee: feeflag

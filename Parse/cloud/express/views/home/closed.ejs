@@ -1,5 +1,13 @@
 <% include ../includes/thanksstart.ejs %>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Order sent page -->
 
@@ -23,11 +31,14 @@
         </div>
       </div>
 
-      <div class="inner cover" id="mainstuff" style="margin-top: 100px; margin-bottom: 500px;">
+      <div class="inner cover" id="mainstuff" style="margin-top: 100px; margin-bottom: 400px;">
         <h1 class="cover-heading">Sorry, we're closed at the moment!</h1>
         <p class="lead">We operate from 8pm-12am Thursday, 8pm-2am Friday/Saturday, and 8pm-12am Sunday. Come back soon!</p>
         <p class="lead">If you haven't met us before, we deliver late night snacks and more straight to your door!</p>
-        <p>(As long as you're on campus, for now)</p>
+        <p class="lead">Here's our <a href="https://heysweetd.com/SweetDMenu.pdf"><r>menu!</r></a></p>
+        <p><green>Now delivering to campus and surrounding areas!</green></p>
+        <p style="margin-top: 80px">Like our <a href="http://facebook.com/heysweetd"><green>page</green></a> for updates and specials!</p>
+        <div class="fb-like" style="margin-top: 20px" data-href="https://facebook.com/heysweetd" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
       </div>
       
       <div class="mastfoot">

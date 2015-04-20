@@ -1,5 +1,4 @@
 var Order = Parse.Object.extend("order")
-var client = require('twilio')('AC24813c0f78b7bcccc83798096e0d9cdc', '085fc22c253b33d693af8046d6c64007');
 
 
 module.exports.tempo = function(req, res) {
@@ -17,10 +16,9 @@ module.exports.home = function(req, res) {
     var mins = d.getMinutes()
     var day = d.getDay()
     // +1 day +7 hour shift as of 3/25/2015
-    return day >= 5
-      && (day <= 6 || day === 0 || day === 1)
-      && hours >= 3
-      && ((hours <= 6 && day === (5 || 1)) || (hours <= 8 && day === (6 || 0)))
+    return (day >= 5 || day === 0 || day === 1)
+      && hours >= 1
+      && ((hours <= 6 && (day === 5 || day === 1)) || (hours <= 8 && (day === 6 || day === 0)) )
   }
   
   // Hours of operation
@@ -61,6 +59,7 @@ module.exports.newOrder = function(req, res) {
   order.set("customerPhone", req.param('phoneNumber'))
   order.set("Total", req.param('total'))
   order.set("Status", "Pending")
+  order.set("creditCard", req.param("creditCard"))
   
   order.save().then(function() {
     res.successT()
@@ -70,14 +69,22 @@ module.exports.newOrder = function(req, res) {
   var productOrdered = req.param('orderList')
   var cstmerNumber = req.param('phoneNumber')
   var total = req.param('total')
+  var creditCard = req.param('creditCard')
+  var payment
+  if(creditCard === "true") {
+    payment = "\nCREDIT"
+  } else {
+    payment = "\nCASH"
+  }
   
   if(location && productOrdered && cstmerNumber && total) {
-    
+    var client = require('twilio')('AC24813c0f78b7bcccc83798096e0d9cdc', '085fc22c253b33d693af8046d6c64007');
+
     for(i = 0; i < numbers.length; i++) {
       client.sendSms({
         to: numbers[i],
         from: '+16508661029',
-        body: 'New order: '+productOrdered+'\n Location: '+location+'\n Total: '+total+'\n Customer number: '+cstmerNumber,
+        body: 'New order: '+productOrdered+'\nLocation: '+location+'\nTotal: '+total+payment+'\nCustomer number: '+cstmerNumber,
       }, function(err, responseData){
         if(err) {
           console.log(err)
