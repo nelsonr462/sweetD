@@ -47,7 +47,7 @@ select {
   background-position: right center;
   appearance: listbox;
   -webkit-appearance: listbox;
-  -moz-appearance: listbox;
+  -moz-appearance: none;
 }
 
 /* Custom default button */
@@ -171,8 +171,7 @@ body {
 .form-control {
   margin-top: 5px;
   margin-bottom: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  height: 45px;
 }
 
 .mastfoot {

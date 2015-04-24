@@ -1,9 +1,10 @@
-$(function(){
+$(document).ready(function(){
 
   var total = "$0.00"
-  var tval = 0;
-  var pflag = false;
-  var lflag = false;
+  var tval = 0
+  var pflag = false
+  var lflag = false
+  var nflag = false
   var inventory = ["Chocolate Chip Cookies", "Red Bull", "Snickers", "Condoms", "Rock Star", "White Chocolate Macadamia Cookies", "Oatmeal Raisin Cookies", "Brownies", "Cinnamon Rolls", "Twix", "Milky Way", "M&M's", "Peanut M&M's", "Donuts", "Cake Donuts", "Oreos (big stack)", "Fudge Squares", "Red Gatorade", "Yellow Gatorade", "Orange Gatorade", "Blue Gatorade", "Purple Gatorade", "Light Blue Gatorade"]
   var ids = ["Cw88sZHIZy", "yTFc0JXOV4", "dOWFhzLe0l", "OFlBAvSjpD", "r4aIlTLQ4J", "kDIaQg1oF6", "arhcAs2f1s", "jqlPANiXgo", "NguOjWzDvc", "XZtg1Yebhe", "ZgfMt4Gp0f", "C9IwFUQQOW", "VYrQAhuOwY", "sR0Fp9zuWr", "Jf3MJg0vWc", "91UUQpoXRP", "mThsaE0riW", "P00Ldu1VCO", "4RnODisFgz", "I6RvosJKlo", "jiGy5tX5sx", "Z85JheZzvo", "t5jpEGMkdZ" ]
   
@@ -19,10 +20,13 @@ $(function(){
     
     var bad = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad\"></span>"
     var bad2 = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad2\"></span>"
+    var bad3 = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad3\"></span>"
+
 
     // User input taken //
     var number = $("#phoneNumber").val()
     var loc = $("#location").val()
+    var name = $("#name").val()
     var cookie = $("#chipCookies").val()
     var redBull = "Red Bull"/*$("#redBull").val()*/
     var condom = $("#condoms").val()
@@ -64,7 +68,7 @@ $(function(){
     }
     
     // POST order message values and input check
-    if( pflag === true && lflag === true && list ) {
+    if( pflag === true && lflag === true && nflag === true && list ) {
       updateInventory(itemsOrdered, inventory)
       $.post("/order/new",
       {
@@ -72,15 +76,27 @@ $(function(){
         orderList: list,
         phoneNumber: number,
         total: total,
-        creditCard: creditCard
+        creditCard: creditCard,
+        name: name
       },
       
       function() {
         console.log("POST success")
+        window.location.replace("http://heysweetd.com/thanks")
       })
-      window.location.replace("http://heysweetd.com/thanks")
 
-    } else if( pflag === false && lflag === false) {
+    } else if( pflag === false && lflag === false && nflag === false) {
+      alert("Please enter a valid name, phone number and location!")
+      $("#bad").remove()
+      $("#bad2").remove()
+      $("#bad3").remove()
+      $("#phoneCheck").addClass("has-error has-feedback")
+      $("#phoneCheck").append(bad)
+      $("#locationCheck").addClass("has-error has-feedback")
+      $("#locationCheck").append(bad2)
+      $("#nameCheck").addClass("has-error has-feedback")
+      $("#nameCheck").append(bad3)
+    } else if( pflag == false && lflag == false ) {
       alert("Please enter a valid phone number and location!")
       $("#bad").remove()
       $("#bad2").remove()
@@ -88,7 +104,7 @@ $(function(){
       $("#phoneCheck").append(bad)
       $("#locationCheck").addClass("has-error has-feedback")
       $("#locationCheck").append(bad2)
-    } else if( pflag === false ) {
+    }else if( pflag === false ) {
       alert("Please enter a valid phone number!")
       $("#bad").remove()
       $("#phoneCheck").addClass("has-error has-feedback")
@@ -98,6 +114,11 @@ $(function(){
       $("#bad2").remove()
       $("#locationCheck").addClass("has-error has-feedback")
       $("#locationCheck").append(bad2)
+    } else if( nflag === false) {
+      alert("Please enter a valid name!")
+      $("#bad3").remove()
+      $("#nameCheck").addClass("has-error has-feedback")
+      $("#nameCheck").append(bad3)
     } else if( !list ) {
       alert("You have no order! Please select items for delivery.")
     }
@@ -209,6 +230,31 @@ $(function(){
     }
   })
   
+  // Name check
+  $('#name').change(function() {
+    var name = $("#name").val()
+    var good3 = "<span class=\"glyphicon glyphicon-ok form-control-feedback\" aria-hidden=\"true\" id=\"good3\"></span>"
+    var bad3 = "<span class=\"glyphicon glyphicon-remove form-control-feedback\" aria-hidden=\"true\" id=\"bad3\"></span>"
+    
+    var check = /^(?!\s*$).+/
+    
+    if( check.test(name) ) {
+      $("#nameCheck").removeClass("has-error has-feedback")
+      $("#bad3").remove()
+      $("#good3").remove()
+      $("#nameCheck").addClass("has-success has-feedback")
+      $("#nameCheck").append(good3)
+      nflag = true
+    } else {
+      $("#nameCheck").removeClass("has-success has-feedback")
+      $("#bad3").remove()
+      $("#good3").remove()
+      $("#nameCheck").addClass("has-error has-feedback")
+      $("#nameCheck").append(bad3)
+      nflag = false
+    }
+  })
+  
   // Checkbox modifier
   $("#creditCheck").click(function() {
     $(this).toggleClass('checked')
@@ -293,6 +339,7 @@ $(function(){
     
     
     for(i = 0; i < order.length; i++){
+      console.log(order[i]+"  "+inventory[i])
       if( order[i] == inventory[i] ) {
         continue;
       } else {
@@ -362,7 +409,7 @@ $(function(){
             itemType[i] = "Cookie"
             id[i] = "91UUQpoXRP"
             break;
-          case "Fudge":
+          case "Fudge Squares":
             itemType[i] = "Special"
             id[i] = "mThsaE0riW"
             break;

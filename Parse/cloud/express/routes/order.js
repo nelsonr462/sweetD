@@ -24,8 +24,8 @@ module.exports.home = function(req, res) {
   // Hours of operation
   var time = checkTime()
   if(time === false) {
-  res.renderT('home/420closed', {
-      template: 'home/420closed',
+  res.renderT('home/closed', {
+      template: 'home/closed',
     }
   )
     console.log("closed")
@@ -60,6 +60,7 @@ module.exports.newOrder = function(req, res) {
   order.set("Total", req.param('total'))
   order.set("Status", "Pending")
   order.set("creditCard", req.param("creditCard"))
+  order.set("name", req.param("name"))
   
   order.save().then(function() {
     res.successT()
@@ -70,6 +71,7 @@ module.exports.newOrder = function(req, res) {
   var cstmerNumber = req.param('phoneNumber')
   var total = req.param('total')
   var creditCard = req.param('creditCard')
+  var name = req.param("name")
   var payment
   if(creditCard === "true") {
     payment = "\nCREDIT"
@@ -84,7 +86,7 @@ module.exports.newOrder = function(req, res) {
       client.sendSms({
         to: numbers[i],
         from: '+16508661029',
-        body: 'New order: '+productOrdered+'\nLocation: '+location+'\nTotal: '+total+payment+'\nCustomer number: '+cstmerNumber,
+        body: 'New order: '+productOrdered+'\nLocation: '+location+'\nTotal: '+total+payment+'\nCustomer number: '+cstmerNumber+'\nName: '+name,
       }, function(err, responseData){
         if(err) {
           console.log(err)
