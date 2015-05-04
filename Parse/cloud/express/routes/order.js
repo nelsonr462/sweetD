@@ -2,8 +2,8 @@ var Order = Parse.Object.extend("order")
 
 
 module.exports.tempo = function(req, res) {
-  res.renderT('home/order', {
-      template: 'home/order',
+  res.renderT('home/closed', {
+      template: 'home/closed',
     }
   )
 }
