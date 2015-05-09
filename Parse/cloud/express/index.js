@@ -58,7 +58,7 @@ app.use(function(req, res, next) {
 })
 
 // Landings
-app.get('/', routes.order.home)
+app.get('/', routes.order.tempo)
 app.get('/thanks', routes.order.thanks)
 app.get('/support', routes.support.contact)
 app.get('/test',routes.test.test)
