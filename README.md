@@ -23,7 +23,7 @@ The main feature of this system was an auto-generated SMS sent to delivery drive
 
 I hired my housemates for a total of 2 drivers.
 
-I deployed a marketing campaign on Facebook (which in all reality, simply consisted of about 1-2 ad campaigns and direct posts to all UCSC Facebook groups )
+I deployed a marketing campaign on Facebook (which in all reality, simply consisted of about 1-2 ad campaigns and direct posts to all UCSC Facebook groups ) We were also able to promote a student who was trying to fundraise for studying abroad.
 
 
 I closed the website after 6 weeks because school was over, and have left it closed because I moved to a location too far to be considered profitable due to gas costs.
