@@ -15,7 +15,7 @@ ___
 
 ... a delivery service with an easy to access online website via mobile/desktop and an easy way for me to operate a business with Parse as the backend. (The name also generated a lot of smiles, so it was easy to remember)
 
-It was my first website so, the code here isn't the cleanest, nor was it the most sensible way to build it, but I hold on to it because it was my first business venture and turned my initial investment of $80 into about $1000 within 6 weeks.
+It was my first website so, the code here isn't the cleanest, nor was it the most sensible way to build it, but I hold on to it because it was my first business venture and turned my initial investment of $80 into about $1000 within 4 weeks.
 
 (Also I aplogize to any UI/UX designers, the website is pretty ugly)
 
